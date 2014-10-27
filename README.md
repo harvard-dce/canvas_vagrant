@@ -16,8 +16,7 @@ Quickstart
     vagrant ssh
 
 Stuff will happen, including downloading a large-ish ubuntu 14.04 VM including
-a modern ruby dev environment provided by the [thoughtbot laptop
-script](http://github.com/thoughtbot/laptop).
+a modern ruby dev environment.
 
 You should see instructions in the vagrant SSH session telling you how to spin
 up the canvas LMS and how to access it in your virtualbox host.
@@ -25,7 +24,7 @@ up the canvas LMS and how to access it in your virtualbox host.
 If you're happy configuring your vagrant box from scratch, you could:
 
     mkdir canvas_vagrant && cd canvas_vagrant
-    vagrant init harvard-dce/canvas
+    vagrant init harvard-dce/ubuntu-14-04-canvas-lms
     vagrant up
     vagrant ssh
 
