@@ -1,0 +1,27 @@
+Vagrant.configure(2) do |config|
+  config.vm.box = "harvard-dce/ubuntu-14-04-post-install"
+  config.vm.network :private_network, ip: "192.168.50.4"
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.name = "canvas-lms_base_box"
+  end
+
+  config.vm.provision 'file',
+    source: './canvas_initial_setup.exp',
+    destination: '~/.canvas_initial_setup.exp'
+
+  config.vm.provision 'file',
+    source: './bashrc_additions.sh',
+    destination: '~/.bashrc_additions.sh'
+
+  config.vm.provision 'shell',
+    path: 'provision_root_items.sh'
+
+  config.vm.provision 'shell',
+    path: 'configure_ruby_and_canvas.sh',
+    privileged: false
+
+  config.vm.provision 'file',
+    source: './Procfile.dev',
+    destination: '~/canvas-lms/Procfile.dev'
+end

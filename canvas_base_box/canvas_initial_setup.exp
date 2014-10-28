@@ -1,0 +1,21 @@
+spawn bundle exec rake db:initial_setup
+
+expect "What email address will the site administrator account use*"
+send "vagrant@example.com\r"
+
+expect "Please confirm*"
+send "vagrant@example.com\r"
+
+expect "What password will the site administrator use*"
+send "vagrant\r"
+
+expect "Please confirm*"
+send "vagrant\r"
+
+expect "the name of your organization.*"
+send "Canvas vagrant dev\r"
+
+expect "3. Opt out completely*"
+send "3\r"
+
+expect eof

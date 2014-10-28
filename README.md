@@ -1,6 +1,8 @@
 Canvas LMS Vagrant Box
 ======================
 
+Installs a recent bootstrapped canvas via vagrant and virtualbox.
+
 Requirements
 ------------
 
@@ -12,26 +14,24 @@ Quickstart
 
     git clone http://github.com/djcp/canvas_vagrant
     cd canvas_vagrant
-    vagrant up
+    vagrant box update # Only if you've used this before
+    vagrant up # Time passes. . .
     vagrant ssh
 
-Stuff will happen, including downloading a large-ish ubuntu 14.04 VM including
-a modern ruby dev environment.
-
-You should see instructions in the vagrant SSH session telling you how to spin
-up the canvas LMS and how to access it in your virtualbox host.
-
-If you're happy configuring your vagrant box from scratch, you could:
-
-    mkdir canvas_vagrant && cd canvas_vagrant
-    vagrant init harvard-dce/ubuntu-14-04-canvas-lms
-    vagrant up
-    vagrant ssh
-
-but you'd be missing the port forwarding and VM tuning included in this repo.
-
-VM config overview
+Vagrant box overview
 ------------------
+
+The vagrant box includes:
+
+* A 2gb RAM allocation (canvas requires this much RAM to run acceptably),
+* A recent-ish canvas as of the time the base box was created, from the `master` branch,
+* A migrated and seeded database,
+* Rendered assets,
+* Canvas is exported on http://192.168.50.4:3000/ (after you've started it),
+* A `Procfile.dev` to make starting canvas easier.
+
+You should see specific instructions in the vagrant SSH session telling you
+how to spin up the canvas LMS and how to access it in your virtualbox host.
 
 `postgres` is configured to use ident auth. You can access the development
 databases within the vagrant box thusly:
@@ -49,19 +49,18 @@ documented in the `motd` you get when `vagrant ssh`ing.
 
 `rbenv` is used to manage rubies.
 
-Coming Soon?
-============
+Notes
+-----
 
-* Provisioning via [ansible](http://ansible.com)
-* Multiple providers
-* Automated repackaging based on new canvas releases
+You should run `vagrant box list` and remove any old versions of the box this
+provides when you're done with them, otherwise they could take up a significant
+amount of disk space.
 
 See also
 ========
 
 * [virtualbox](http://virtualbox.org)
 * [vagrant](http://vagrantup.com)
-* [laptop](http://github.com/thoughtbot/laptop)
 * [canvas](http://github.com/instructure/canvas-lms)
 
 Copyright
