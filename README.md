@@ -12,7 +12,7 @@ Requirements
 Quickstart
 ----------
 
-    git clone http://github.com/djcp/canvas_vagrant
+    git clone http://github.com/harvard-dce/canvas_vagrant
     cd canvas_vagrant
     vagrant box update # Only if you've used this before
     vagrant up # Time passes. . .
@@ -62,6 +62,11 @@ See also
 * [virtualbox](http://virtualbox.org)
 * [vagrant](http://vagrantup.com)
 * [canvas](http://github.com/instructure/canvas-lms)
+
+Contributors
+============
+
+* Dan Collis-Puro - [djcp](http://github.com/djcp)
 
 Copyright
 =========
