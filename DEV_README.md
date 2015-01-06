@@ -1,5 +1,4 @@
-Developers Only
-===============
+# Developers Only
 
 * Make sure you have the aws-cli installed as provided by amazon, in addition to the base requirements.
 * Ensure you can upload files to the relevant s3 bucket via the aws-cli s3 interface.
