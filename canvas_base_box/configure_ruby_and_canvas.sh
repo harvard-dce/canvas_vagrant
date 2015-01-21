@@ -24,14 +24,28 @@ rbenv global ${mri_ruby_version}
 rbenv rehash
 
 gem install foreman
-gem install bundler -v 1.6.0
+gem install bundler
 git clone https://github.com/instructure/canvas-lms canvas-lms
 cd canvas-lms
 git checkout master
+# log/ not automatically created any more
+mkdir log
 bundle install --without mysql
 
 for config in amazon_s3 database delayed_jobs domain file_store outgoing_mail security external_migration;
 do cp -v config/${config}.yml.example config/${config}.yml; done
+
+echo "
+development:
+  servers:
+    - redis://localhost
+  database: 1
+
+test:
+  servers:
+    - redis://localhost
+  database: 2
+" > config/redis.yml
 
 createdb canvas_development
 createdb canvas_queue_development

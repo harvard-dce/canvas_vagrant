@@ -40,8 +40,8 @@ publish_box(){
 check_for_aws
 
 cd canvas_base_box
-echo 'Remove already rendered base box to force re-provisioning and updating'
-vagrant destroy
+# echo 'Remove already rendered base box to force re-provisioning and updating'
+# vagrant destroy
 rm -f *.box
 
 if vagrant up; then

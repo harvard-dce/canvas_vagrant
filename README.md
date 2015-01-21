@@ -48,7 +48,8 @@ databases within the vagrant box thusly:
 
     vagrant@vagrant:~$ psql canvas_development
 
-Redis is installed, but caching is not enabled by default. See [this part of the
+Redis is installed and configured, but ruby- and rails- level caching is not
+enabled by default. See [this part of the
 quickstart](https://github.com/instructure/canvas-lms/wiki/Quick-Start#performance-tweaks)
 if you'd like to introduce class, template, and rails caching. Keep in mind
 that you'll need to restart after every code change if you go this route.
@@ -67,7 +68,7 @@ you should:
 
 * Update the git repository: `cd canvas_vagrant && git pull`
 * Remove your previous box (after you've backed up or copied whatever is
-  important out of it, which may be nothing): `vagrant destroy`
+  important out of it, which is hopefully nothing): `vagrant destroy`
 * Update to the latest box: `vagrant box update`
 * Launch!: `vagrant up`
 * Remove the old box version to clear up disk space: `vagrant box remove
