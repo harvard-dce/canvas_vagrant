@@ -24,7 +24,7 @@ rbenv global ${mri_ruby_version}
 rbenv rehash
 
 gem install foreman
-gem install bundler --version=1.7.10
+gem install bundler --version=1.10.6
 git clone https://github.com/instructure/canvas-lms canvas-lms
 cd canvas-lms
 git checkout master
